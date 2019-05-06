@@ -8,9 +8,42 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Button Width="200" Height="50" Content="Add" FontSize="20" Command="{Binding AddCommand}" Background="Aqua" Margin="20"></Button>
-            <Button Width="200" Height="50" Content="Update" FontSize="20" Command="{Binding UpdateCommand}" Background="Aqua" Margin="20"></Button>
-            <Button Width="200" Height="50" Content="Reject" FontSize="20" Command="{Binding RejectCommand}" Background="Aqua" Margin="20"></Button>
+            <Button Width="200" Height="50" Content="Add" FontSize="20" Command="{Binding AddCommand}" Background="Aqua" Margin="20">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="1">
+                                <Setter Property="IsEnabled" Value="False"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="200" Height="50" Content="Update" FontSize="20" Command="{Binding UpdateCommand}" Background="Aqua" Margin="20">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="1">
+                                <Setter Property="IsEnabled" Value="False"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="200" Height="50" Content="Reject" FontSize="20" Command="{Binding RejectCommand}" Background="Aqua" Margin="20">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="1">
+                                <Setter Property="IsEnabled" Value="False"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </StackPanel>
         
     </Grid>

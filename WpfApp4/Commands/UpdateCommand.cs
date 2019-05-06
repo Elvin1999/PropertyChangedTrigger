@@ -8,7 +8,7 @@ using WpfApp4.ViewModel;
 
 namespace WpfApp4.Commands
 {
-    class UpdateCommand : ICommand
+    public class UpdateCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
         public MainViewModel MainViewModel { get; set; }

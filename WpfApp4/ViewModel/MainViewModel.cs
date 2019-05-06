@@ -8,12 +8,13 @@ using WpfApp4.Commands;
 
 namespace WpfApp4.ViewModel
 {
-    class MainViewModel:BaseViewModel
+   public class MainViewModel:BaseViewModel
     {
         public AddCommand AddCommand => new AddCommand(this);
         public UpdateCommand UpdateCommand => new UpdateCommand(this);
         public RejectCommand RejectCommand => new RejectCommand(this);
 
+        public int State { get; set; } = 0;
     }
 
 }
