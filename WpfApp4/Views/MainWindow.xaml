@@ -7,25 +7,57 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid  Grid.Column="0">
+
+            <Grid.Style>
+                <Style TargetType="{x:Type Grid}">
+                    <Setter Property="Background" Value="Aqua"></Setter>
+                    
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="1">
+                            <Setter Property="Background" Value="SpringGreen"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="2">
+                            <Setter Property="Background" Value="Aqua"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            
+        </Grid>
+        
+        <Grid Grid.Column="1">
+            
+     
         <StackPanel Orientation="Vertical">
-            <Button Width="200" Height="50" Content="Add" FontSize="20" Command="{Binding AddCommand}" Background="Aqua" Margin="20">
+            <Button Width="200" Height="50" FontSize="20" Command="{Binding AddCommand}" Background="Aqua" Margin="20">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Setter Property="Content" Value="Add"></Setter>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="1">
-                                <Setter Property="IsEnabled" Value="False"></Setter>
-                            </DataTrigger>
-                        </Style.Triggers>
+                                <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="1">
+                                    <Setter Property="Content" Value="Save"></Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="2">
+                                    <Setter Property="Content" Value="Add"></Setter>
+                                </DataTrigger>
+                            
+                            </Style.Triggers>
                     </Style>
                 </Button.Style>
             </Button>
             <Button Width="200" Height="50" Content="Update" FontSize="20" Command="{Binding UpdateCommand}" Background="Aqua" Margin="20">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
-                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Setter Property="IsEnabled" Value="False"></Setter>
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="1">
+                            <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="10">
                                 <Setter Property="IsEnabled" Value="False"></Setter>
                             </DataTrigger>
                         </Style.Triggers>
@@ -35,16 +67,16 @@
             <Button Width="200" Height="50" Content="Reject" FontSize="20" Command="{Binding RejectCommand}" Background="Aqua" Margin="20">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
-                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Setter Property="IsEnabled" Value="False"></Setter>
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding State, Mode=TwoWay}" Value="1">
-                                <Setter Property="IsEnabled" Value="False"></Setter>
+                                <Setter Property="IsEnabled" Value="True"></Setter>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
             </Button>
         </StackPanel>
-        
+        </Grid>
     </Grid>
 </Window>

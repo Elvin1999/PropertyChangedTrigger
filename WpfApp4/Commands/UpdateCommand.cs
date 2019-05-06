@@ -23,7 +23,7 @@ namespace WpfApp4.Commands
 
         public void Execute(object parameter)
         {
-            
+            MainViewModel.State = 3;
         }
     }
 }

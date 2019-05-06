@@ -8,7 +8,7 @@ using WpfApp4.ViewModel;
 
 namespace WpfApp4.Commands
 {
-   public class AddCommand : ICommand
+    public class AddCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
         public MainViewModel MainViewModel { get; set; }
@@ -18,12 +18,21 @@ namespace WpfApp4.Commands
         }
         public bool CanExecute(object parameter)
         {
-            return true; 
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            MainViewModel.State = 1;
+            if (MainViewModel.State == 1)
+            {
+                MainViewModel.State = 2;
+            }
+            else
+            {
+
+                MainViewModel.State = 1;
+            }
+
         }
     }
 }
