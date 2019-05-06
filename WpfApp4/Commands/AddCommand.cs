@@ -4,13 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WpfApp4.ViewModel;
 
 namespace WpfApp4.Commands
 {
     class AddCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
-
+        public MainViewModel MainViewModel { get; set; }
+        public AddCommand(MainViewModel mainViewModel)
+        {
+            MainViewModel = mainViewModel;
+        }
         public bool CanExecute(object parameter)
         {
             return true; 
