@@ -13,8 +13,18 @@ namespace WpfApp4.ViewModel
         public AddCommand AddCommand => new AddCommand(this);
         public UpdateCommand UpdateCommand => new UpdateCommand(this);
         public RejectCommand RejectCommand => new RejectCommand(this);
-
-        public int State { get; set; } = 0;
+        private int state;
+        public int State {
+            get
+            {
+                return state;
+            }
+            set
+            {
+                state = value;
+                OnPropertyChanged(new PropertyChangedEventArgs(nameof(State)));
+            }
+        }
     }
 
 }
