@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp4.ViewModel;
-
+using System.Collections.ObjectModel;
 namespace WpfApp4
 {
     /// <summary>
@@ -26,6 +26,24 @@ namespace WpfApp4
         {
             InitializeComponent();
             MainViewModel = new MainViewModel();
+            MainViewModel.AllUsers = new ObservableCollection<Entities.User>() {
+                new Entities.User()
+                {
+                    Id=1,Name="Elvin",Surname="Camalzade",Age=19
+                },
+                 new Entities.User()
+                {
+                    Id=2,Name="Elvin",Surname="Camalzade",Age=19
+                },
+                  new Entities.User()
+                {
+                    Id=3,Name="Elvin",Surname="Camalzade",Age=19
+                },
+                   new Entities.User()
+                {
+                    Id=4,Name="Elvin",Surname="Camalzade",Age=19
+                }
+            };
 
             DataContext = MainViewModel;
 
